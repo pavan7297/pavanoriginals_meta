@@ -1,9 +1,9 @@
-name: Build and Push Gate Service Docker Image
+name: Build and Push Docker Image
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-push:
@@ -19,7 +19,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build Spring Boot (Gate Service)
+      - name: Build Spring Boot app
         run: mvn clean package -DskipTests
 
       - name: Log in to Docker Hub

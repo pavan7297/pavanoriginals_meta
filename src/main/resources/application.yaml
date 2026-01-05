@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: gate
+---
+server:
+  port: 2000
