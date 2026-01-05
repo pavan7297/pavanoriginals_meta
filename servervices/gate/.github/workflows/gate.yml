@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - "servervices/gate/**"
 
 jobs:
   build-and-push:
@@ -20,6 +22,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build Spring Boot (Gate Service)
+        working-directory: services/gate
         run: mvn clean package -DskipTests
 
       - name: Log in to Docker Hub
@@ -29,6 +32,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
+        working-directory: services/gate
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/gate-service:latest .
 
