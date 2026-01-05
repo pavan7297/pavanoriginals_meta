@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - "services/gate/**"
+      - "servervices/gate/**"
 
 jobs:
   build-and-push:
