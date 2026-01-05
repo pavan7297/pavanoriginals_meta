@@ -3,7 +3,7 @@ name: Build and Push Gate Service Docker Image
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - "services/gate/**"
 
